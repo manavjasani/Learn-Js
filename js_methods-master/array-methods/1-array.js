@@ -44,11 +44,10 @@ const oddNo = numbers.filter(num => {
 
 // Find all the words that contain 'is' use string method 'indexOf'
   let word = strings.map(val => {
-      if(val.indexOf('is')) {
-        return val;
-      }
-    });
-    console.log(word);
+        if ( -1 != val.indexOf('is') ) {
+          return val ;
+        }
+    }).filter( x => x != undefined );
 
 
 // Check if all the numbers in numbers array are divisible by three use array method (every)
@@ -106,16 +105,8 @@ const oddNo = numbers.filter(num => {
   });
 
 // Sort the array created above alphabetically
+
+fName.sort();
+lName.sort();
+console.log(lName);
   
-  customers.sort(function(a, b) {
-    var nameA = a.firstname.toUpperCase(); 
-    var nameB = b.lastname.toUpperCase(); 
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-  
-    return 0;
-  });

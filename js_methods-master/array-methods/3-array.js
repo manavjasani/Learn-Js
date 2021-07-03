@@ -14,7 +14,12 @@ var words = [
 
 // Write a function uniqueArray that receives an array of words as a parameter. And remove the duplicates, and return a new array. 
 // (indexOf)
-
+  const uniqueArray = function(words) {
+    const arrVal = words.filter((move, i, arr) => {
+      return i == arr.indexOf(move);
+    })
+  }
+  uniqueArray(words);
 
 
 var words2 = [
@@ -29,8 +34,14 @@ var words2 = [
 ];
 
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
-
-
+const doesWordExist = function(words2, word) {
+  for(let i = 0; i < words2.length; i++) {
+    if(words2[i] == word) {
+      return true;
+    } 
+  } return false;
+}
+doesWordExist(words2, 'manav');
 
 
 var words3 = [
@@ -49,7 +60,16 @@ var words3 = [
 
 
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
+const howManyTimes = function(words3, word) {
+  let num = 0;
+  for(let i = 0; i < words3.length; i++) {
+    if(words3[i] == word) { 
+      num++;
+    } else num;
+  }return num;
+}
 
+howManyTimes(words3, 'machine');
 
 
 
@@ -74,6 +94,14 @@ let data = [
   }
 ]
 
+let totalPop = data.reduce( ( acc, i ) => {
+  if ( i.country === "China" ) return 0;
+  // console.log( acc );
+  return i.pop + acc;
+}, 0);
+
+
+
 
 // Use reduce method and summorize the collection like
 // { banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1 }
@@ -90,6 +118,16 @@ const fruitBasket = [
   'orange',
   'fig'
 ];
+
+fruitBasket.reduce((acc, mov, i, arr) => {  
+  if(arr.indexOf(mov) == i) {
+    acc[mov] = 1;
+  } else {
+    acc[mov] = acc[mov] + 1;
+  }
+  return acc;
+  
+}, {});
 
 
 
@@ -118,3 +156,29 @@ var matrix = [
 ];
 // In the 20×20 grid above What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
 // Write a function greatestProduct to find the answer!
+function get(arr, y, x) {
+  if(y >= 0 && y < arr.length && x >= 0 && x < arr.length) {
+    return arr[y][x];
+  } return 0;
+};
+
+function greatestProduct(arr, k) {
+  let max = 0;
+  for(let i = 0; i < 20; i++) {
+    for(let j = 0; j < 20; j++) {
+      
+      let p1 = 1, p2 = 1, p3 = 1, p4 = 1;
+
+      for(let l = 0; l < k; l++) {
+        p1 = get(arr, i, j + l);
+        p2 = get(arr, i + l, j);
+        p3 = get(arr, i + l, j + l);
+        p4 = get(arr, i + l, j - l);
+      }
+      max = Math.max(p1, p2, p3, p4, max);
+    }
+  }
+  return max;
+};
+
+console.log(greatestProduct(matrix, 4));
