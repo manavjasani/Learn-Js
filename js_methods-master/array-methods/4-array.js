@@ -30,6 +30,18 @@ var data = [
 // 1 human year = 7 dog year
 
 // your code goes here
+const calcAge = function(arr, animal) {
+  let age = 0;
+  const dogYear = 7;
+  for(let i = 0; i< arr.length; i++) {
+    if(arr[i].type == animal) {
+      age += arr[i].age;
+    }
+  }
+  return age * dogYear;
+}
+calcAge(data, 'dog');
+
 
 // Solution is 105
 
@@ -39,3 +51,8 @@ var data = [
 // 3. reduce - to accumulate total age.
 
 // Solution 105
+
+const calcYear = data.filter(x => x.type == 'dog')
+                      .map(y => y.age * 7)
+                      .reduce((acc, mov) => acc + mov);
+  console.log(calcYear);
