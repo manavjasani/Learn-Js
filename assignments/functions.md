@@ -144,7 +144,9 @@ Is there any difference in the behavior of these two variants? If there is what 
 
 ```js
 // Your code here.
-
+function min(x, y) {
+  return (x < y) ? x : y;
+}
 console.log(min(0, 10));
 // → 0
 console.log(min(0, -10));

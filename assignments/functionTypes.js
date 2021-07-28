@@ -42,12 +42,18 @@ convertToString(21); // "21"
  * @param {number} n
  * @return {number}
  */
+function add(n) {
+  return n + 1;
+}
 
 /**
  * Subtracts one from a given number.
  * @param {number} n
  * @return {number}
  */
+let subOne = function(n) {
+  return n - 1;
+}
 
 /**
  * Adds two numbers.
@@ -55,6 +61,7 @@ convertToString(21); // "21"
  * @param {number} y
  * @return {number} the sum
  */
+let addition = (x, y) => (x + y); 
 
 /**
  * Subtracts the second number from the first.
@@ -62,6 +69,7 @@ convertToString(21); // "21"
  * @param {number} y
  * @return {number} the difference
  */
+let subtract = (x, y) => (x - y);
 
 /**
  * Multiplies two numbers.
@@ -69,6 +77,7 @@ convertToString(21); // "21"
  * @param {number} y
  * @return {number} the product
  */
+ let multiply = (x, y) => (x * y);
 
 /**
  * Divides the first number by the second.
@@ -76,12 +85,14 @@ convertToString(21); // "21"
  * @param {number} y
  * @return {number} the quotient
  */
+ let divide = (x, y) => (x / y);
 
 /**
  * Multiplies a number by itself.
  * @param {number} x, number to be squared
  * @return {number} squared
  */
+let square = x => x * x;
 
 /**
  * Performs a mathematical operation on two numbers.
@@ -91,13 +102,24 @@ convertToString(21); // "21"
  * @param {number} y
  * @return {number} the result
  */
+function oper(o, x, y) {
+  if (o == "+") {
+    return x + y;
+  } else if (o == "-") {
+    return x - y;
+  } else if (o == "*") {
+    return x * y;
+  } else if(o == "/") {
+    return x / y;
+  }
+}
 
 /**
  * Returns true if `a` is greater than `b`.
  * @param {number} a
  * @param {number} b
  * @return {boolean} `a` is larger than `b`
- */
+ */const great = (a, b) => (a > b);
 
 /**
  * Returns true if `a` is less than `b`.
@@ -105,6 +127,7 @@ convertToString(21); // "21"
  * @param {number} b
  * @return {boolean} `a` is smaller than `b`
  */
+  const lower = (a, b) => (a < b);
 
 /**
  * Returns true if `a` and `b` are equal.
@@ -112,6 +135,7 @@ convertToString(21); // "21"
  * @param {number} b
  * @return {boolean} the numbers are equal
  */
+ const equal = (a, b) => (a == b);
 
 /**
  * Returns the smallest value of two numbers.
@@ -119,6 +143,7 @@ convertToString(21); // "21"
  * @param {number} y
  * @return {number} the smallest number
  */
+const small = (x, y) => (x < y) ? x : y;
 
 /**
  * Returns the largest value of two numbers.
@@ -126,18 +151,21 @@ convertToString(21); // "21"
  * @param {number} y
  * @return {number} the largest number
  */
+const large = (x, y) => (x > y) ? x : y;
 
 /**
  * Returns true if `n` is even.
  * @param {number} n
  * @return {boolean} the number is even
  */
+const even = n => (n % 2 == 0);
 
 /**
  * Returns true if `n` is odd.
  * @param {number} n
  * @return {boolean} the number is odd
  */
+ const odd = n => (n % 2 == 1);
 
 /**
  * Returns a letter grade.
@@ -150,6 +178,20 @@ convertToString(21); // "21"
  * @param {number} total maximum possible score
  * @return {string} the score represented as a letter grade
  */
+const letterGrade = (score, total) => {
+  const percent = (score / total) * 100;
+  if (percent >= 90 && percent <= 100) {
+    return 'A';
+  } else if (percent >= 80 && percent <= 89) {
+    return 'B';
+  } else if (percent >= 70 && percent <= 79) {
+    return 'C';
+  } else if (percent >= 60 && percent <= 69) {
+    return 'D';
+  } else {
+    return 'E';
+  }
+}
 
 /**
  * Joins two strings with a space.
@@ -157,3 +199,4 @@ convertToString(21); // "21"
  * @param {string} word2
  * @return {string} joined the words joined with a space
  */
+const concat = (word1, word2) => word1 + ' ' + word2;
